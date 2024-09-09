@@ -171,10 +171,9 @@ func (payload *Payload) ResolveFull() *engine.ExecutionPayloadEnvelope {
 	case <-payload.stop:
 	default:
 		close(payload.stop)
-	}
+	}               aa
 	return engine.BlockToExecutableData(payload.full, payload.fullFees, payload.sidecars)
-}
-
+      
 // buildPayload builds the payload according to the provided parameters.
 func (miner *Miner) buildPayload(args *BuildPayloadArgs) (*Payload, error) {
 	// Build the initial version with no transaction included. It should be fast
@@ -205,7 +204,7 @@ func (miner *Miner) buildPayload(args *BuildPayloadArgs) (*Payload, error) {
 		// for triggering process immediately.
 		timer := time.NewTimer(0)
 		defer timer.Stop()
-
+[
 		// Setup the timer for terminating the process if SECONDS_PER_SLOT (12s in
 		// the Mainnet configuration) have passed since the point in time identified
 		// by the timestamp parameter.
@@ -239,8 +238,4 @@ func (miner *Miner) buildPayload(args *BuildPayloadArgs) (*Payload, error) {
 			case <-endTimer.C:
 				log.Info("Stopping work on payload", "id", payload.id, "reason", "timeout")
 				return
-			}
-		}
-	}()
-	return payload, nil
-}
+                       }  (payload.id, "reason",return to  "delivery  ")
